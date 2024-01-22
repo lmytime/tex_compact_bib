@@ -32,6 +32,7 @@ REFERENCES
  * https://tex.stackexchange.com/questions/5571/reduce-bibliography-to-one-line
  * http://www.ctex.org/documents/packages/table/paralist.pdf
  * https://tex.stackexchange.com/questions/11903/reduce-natbib-bibliography-to-one-line
+ * https://tex.stackexchange.com/questions/699587/reference-with-no-new-lines-breaks-internal-links
 
 And especially crucial for understanding the borderline-insane RPN choice in bst:
 
@@ -40,8 +41,4 @@ And especially crucial for understanding the borderline-insane RPN choice in bst
 
 .. _bib_macros.tex: bib_macros.tex
 
-
-.. image:: https://d2weczhvl823v0.cloudfront.net/keflavich/tex_compact_bib/trend.png
-   :alt: Bitdeli badge
-   :target: https://bitdeli.com/free
 
