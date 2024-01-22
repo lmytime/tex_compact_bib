@@ -16,21 +16,21 @@ instead of::
 Instructions
 ------------
 
-Save file `apj_w_etal_3auth.bst` and `bib_macros.tex` in the same path as your main `.tex` file.
+Save file `aas_compact.bst` and `aas_compact.tex` in the same path as your main `.tex` file.
 
-Include `bib_macros.tex` in your header, e.g.::
+Include `aas_compact.tex` in your header, e.g.::
 
-    \include{bib_macros}
+    \include{aas_compact}
 
 or::
 
-    \input{bib_macros}
+    \input{aas_compact}
 
 
 REFERENCES
 ----------
 
-
+ * https://github.com/keflavich/tex_compact_bib
  * https://tex.stackexchange.com/questions/5571/reduce-bibliography-to-one-line
  * http://www.ctex.org/documents/packages/table/paralist.pdf
  * https://tex.stackexchange.com/questions/11903/reduce-natbib-bibliography-to-one-line
