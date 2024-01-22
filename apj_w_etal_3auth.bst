@@ -398,8 +398,8 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
   numnames #1 >
-    { s #1 "\textbullet~\textbf{ll}" format.name$ " {et~al.}" * }
-    { "\textbullet~\textbf" 
+    { s #1 "\textbf{ll}" format.name$ " {et~al.}" * }
+    { "\textbf" 
           { namesleft #0 > }
           { s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$
           't :=
