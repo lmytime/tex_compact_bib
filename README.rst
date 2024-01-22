@@ -16,7 +16,9 @@ instead of::
 Instructions
 ------------
 
-Include `bib_macros.tex`_ in your header, e.g.::
+Save file `apj_w_etal_3auth.bst` and `bib_macros.tex` in the same path as your main `.tex` file.
+
+Include `bib_macros.tex` in your header, e.g.::
 
     \include{bib_macros}
 
