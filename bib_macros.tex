@@ -2,16 +2,18 @@
 \citestyle{aa}  % (Author YYYY) references instead of (Author, YYYY)
 \bibliographystyle{apj_w_etal_3auth}
 
-\usepackage{paralist}
+\usepackage[olditem,oldenum]{paralist}
+
+% https://stackoverflow.com/questions/1670462/references-style-without-line-breaks
+\makeatletter
+\def\NAT@anchor#1#2{%
+ \hfilneg\hyper@natanchorstart{#1\@extra@b@citeb}%
+ \textbullet
+ \hyper@natanchorend
+}%
+\makeatother
 
 \renewenvironment{thebibliography}[1]{%
-  %\section*{\refname}%
   \textsc{\textbf{References:}}
-  \let\par\relax\let\newblock\relax%
-  \inparaitem[{[}1{]}]}{\endinparaitem}
-
-% https://tex.stackexchange.com/a/419030/8546
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\@lbibitem}{\item[\hfil\NAT@anchor{#2}{\NAT@num}]}{\item[\NAT@anchor{#2}{\NAT@num}]}{}{}
-\makeatother
+  \let\par\relax\let\newblock\relax
+  \inparaenum}{\endinparaenum}
