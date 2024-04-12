@@ -1,8 +1,12 @@
-
-\citestyle{aa}  % (Author YYYY) references instead of (Author, YYYY)
-\bibliographystyle{aas_compact}
 \usepackage{natbib}
 \usepackage[olditem,oldenum]{paralist}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    allcolors=black
+}
+\citestyle{aa}  % (Author YYYY) references instead of (Author, YYYY)
+\bibliographystyle{aas_compact}
 
 % https://tex.stackexchange.com/questions/699587/reference-with-no-new-lines-breaks-internal-links
 % https://stackoverflow.com/questions/1670462/references-style-without-line-breaks
@@ -14,5 +18,6 @@
 }%
 \makeatother
 \renewenvironment{thebibliography}[1]{%
+  \setlength{\parindent}{0cm}
   \par\let\par\relax\let\newblock\relax
   \inparaenum}{\endinparaenum}

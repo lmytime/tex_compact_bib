@@ -1,8 +1,12 @@
-
-\citestyle{numeric}  % numeric like [1], [2]
-\bibliographystyle{aas_compact-numeric}
 \usepackage[numbers]{natbib}
 \usepackage[olditem,oldenum]{paralist}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    allcolors=black
+}
+\citestyle{numeric}  % numeric like [1], [2]
+\bibliographystyle{aas_compact-numeric}
 
 % https://tex.stackexchange.com/questions/699587/reference-with-no-new-lines-breaks-internal-links
 % https://stackoverflow.com/questions/1670462/references-style-without-line-breaks
@@ -14,6 +18,6 @@
 }%
 \makeatother
 \renewenvironment{thebibliography}[1]{%
+  \setlength{\parindent}{0cm}
   \par\let\par\relax\let\newblock\relax
   \inparaenum}{\endinparaenum}
-%biblio
