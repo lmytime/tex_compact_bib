@@ -1,7 +1,7 @@
 
-\citestyle{aa}  % (Author YYYY) references instead of (Author, YYYY)
-\bibliographystyle{aas_compact}
-\usepackage{natbib}
+\citestyle{numeric}  % numeric like [1], [2]
+\bibliographystyle{aas_compact-numeric}
+\usepackage[numbers]{natbib}
 \usepackage[olditem,oldenum]{paralist}
 
 % https://tex.stackexchange.com/questions/699587/reference-with-no-new-lines-breaks-internal-links
@@ -9,10 +9,11 @@
 \makeatletter
 \def\NAT@anchor#1#2{%
  \hfilneg\hyper@natanchorstart{#1\@extra@b@citeb}%
- \textbullet
+ [#2]\hspace{-5pt}
  \hyper@natanchorend
 }%
 \makeatother
 \renewenvironment{thebibliography}[1]{%
   \par\let\par\relax\let\newblock\relax
   \inparaenum}{\endinparaenum}
+%biblio

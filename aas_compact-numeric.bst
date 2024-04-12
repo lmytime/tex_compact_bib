@@ -1772,38 +1772,66 @@ FUNCTION {editor.sort}
   if$
 }
 
+%%%%%%%%%%% Comment by MLi: In the numeric mode, we use the sorting and citation order by appearance in the text
+%%%% Original code
+% FUNCTION {presort}
+% { 
+%   calc.label
+%   label sortify
+%   "    "
+%   *
+%   type$ "book" =
+%   type$ "inbook" =
+%   or
+%     'author.editor.sort
+%     { type$ "proceedings" =
+%         'editor.sort
+%         'author.sort
+%       if$
+%     }
+%   if$
+%   #1 entry.max$ substring$
+%   'sort.label :=
+%   sort.label
+%   *
+%   "    "
+%   *
+% %% August 2016
+% %% commenting out this combination gets the cites right but references wrong
+% %%  title field.or.null
+% %%  sort.format.title
+% %%  *
+% %%
+% %% with only this line on, we get cites right but references wrong
+%  sort.format.title
+%   #1 entry.max$ substring$
+%   'sort.key$ :=
+% }
+%%%% New code, from https://tex.stackexchange.com/a/96358
+INTEGERS { seq.num }
+
+FUNCTION {init.seq}
+{ #0 'seq.num :=}
+
+EXECUTE {init.seq}
+FUNCTION {int.to.fix}
+{ "000000000" swap$ int.to.str$ *
+  #-1 #10 substring$
+}
+
 FUNCTION {presort}
 { calc.label
   label sortify
   "    "
   *
-  type$ "book" =
-  type$ "inbook" =
-  or
-    'author.editor.sort
-    { type$ "proceedings" =
-        'editor.sort
-        'author.sort
-      if$
-    }
-  if$
-  #1 entry.max$ substring$
+  seq.num #1 + 'seq.num :=
+  seq.num int.to.fix
   'sort.label :=
-  sort.label
-  *
-  "    "
-  *
-%% August 2016
-%% commenting out this combination gets the cites right but references wrong
-%%  title field.or.null
-%%  sort.format.title
-%%  *
-%%
-%% with only this line on, we get cites right but references wrong
- sort.format.title
+  sort.label *
   #1 entry.max$ substring$
   'sort.key$ :=
 }
+%%%%%%%%%%%
 
 ITERATE {presort}
 
