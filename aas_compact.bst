@@ -834,7 +834,7 @@ FUNCTION {format.year.addlink}
 { doi empty$
 {eprint empty$ 
      { url empty$ 
-       { "" }
+       { year }
        { format.year.addlink.url }
      if$}
      { format.year.addlink.eprint }
