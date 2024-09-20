@@ -1025,10 +1025,13 @@ FUNCTION {first.page}
 }
 
 %%%%%%%%%%% Comment by MLi: The original codes will show arXiv paper as `arXiv, arXiv:xxxx.xxxxx`. We cancel the duplicate of arXiv.
+%%%%% addition by GDM: add the case that the journal is "arXiv e-prints"
 FUNCTION {format.journal}
 { journal empty$
     { "" }
-    { journal "arXiv" = 
+    { journal "arXiv" =
+      journal "arXiv e-prints" =
+      or
           { "" }
           { journal }
       if$
