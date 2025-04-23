@@ -195,6 +195,7 @@ ENTRY
     year
     version
     url
+    adsurl
   }
   {}
   { label extra.label sort.label short.list }
@@ -805,6 +806,12 @@ FUNCTION {format.year.addlink.url}
     { "\urlfor{" url * "}{" * year * "}" * }
   if$
 }
+FUNCTION {format.year.addlink.adsurl}
+{ adsurl empty$
+    { "" }
+    { "\urlfor{" adsurl * "}{" * year * "}" * }
+  if$
+}
 %%%%%%%%%%%
 %%%%%%%%%%%
 FUNCTION {format.year.addlink.eprint}
@@ -833,9 +840,12 @@ FUNCTION {format.year.addlink.doi}
 FUNCTION {format.year.addlink}
 { doi empty$
 {eprint empty$ 
-     { url empty$ 
-       { year }
-       { format.year.addlink.url }
+     { adsurl empty$ 
+       { url empty$ 
+           { "" }
+           { format.year.addlink.url }
+         if$}
+       { format.year.addlink.adsurl }
      if$}
      { format.year.addlink.eprint }
     if$}
